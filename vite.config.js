@@ -5,6 +5,7 @@ import { resolve } from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/sql-query-runner/',
   server: {
     // Add proper CORS headers
     cors: true
