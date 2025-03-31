@@ -1,0 +1,257 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.4em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Add these styles for fixed table dimensions */
+.table-scroll-container {
+  height: 600px !important; /* Force height */
+  overflow: auto !important; /* Ensure scrolling works */
+}
+
+/* Ensure the table has a fixed width */
+.table-scroll-container table {
+  min-width: 1200px !important;
+  table-layout: fixed !important;
+}
+
+/* Make sure table header stays fixed */
+.table-scroll-container thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+/* Ensure the editor container has sufficient height */
+.editor-results-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+}
+
+/* Fixed layout styles */
+body, html, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Fixed dimensions for editor and results */
+.editor-section {
+  height: 300px !important; /* Reduced from 400px */
+  min-height: 300px !important; /* Reduced from 400px */
+  max-height: 300px !important; /* Reduced from 400px */
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  outline: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Monaco editor container should also have a border */
+.monaco-editor-container {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.results-section {
+  height: calc(100vh - 450px) !important; /* Increased from 550px */
+  min-height: 400px !important; /* Increased from 300px */
+  overflow: hidden !important;
+}
+
+/* Table container */
+.table-scroll-container {
+  height: calc(100% - 110px) !important;
+  overflow: auto !important;
+}
+
+/* Ensure the table has a fixed width */
+.table-scroll-container table {
+  min-width: 1200px !important;
+  table-layout: fixed !important;
+}
+
+/* Make sure table header stays fixed */
+.table-scroll-container thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+/* Fix for container width to prevent overlap */
+.editor-results-container {
+  width: calc(100% - 280px) !important; /* Subtract side panel width */
+}
+
+/* Media query for responsive layout */
+@media (max-width: 1200px) {
+  .editor-results-container {
+    width: 100% !important;
+  }
+}
+
+/* Ensure proper scrollbar styling for all major browsers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Add these styles for the filter row */
+.filter-row th {
+  padding: 6px 16px !important;
+  background-color: inherit !important; /* Use inherited colors */
+  border-bottom: 1px solid var(--color-border, #dee2e6) !important;
+}
+
+.filter-row input {
+  width: 95% !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  border: 1px solid var(--color-border, #dee2e6) !important;
+  border-radius: 4px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Dark mode styles for filter inputs */
+:root[data-theme="dark"] .filter-row input {
+  background-color: #2a2d31 !important;
+  color: #e9ecef !important;
+}
+
+/* Light mode styles for filter inputs */
+:root[data-theme="light"] .filter-row input {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+.filter-row input:focus {
+  outline: none !important;
+  border-color: var(--color-primary, #0d6efd) !important;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15) !important;
+}
+
+/* Make sure the global search has proper padding for the icon */
+.filter-container input {
+  padding-left: 36px !important;
+  width: 220px !important;
+}
+
+/* Ensure pagination icons are properly themed in both modes */
+.pagination-controls button svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Light theme */
+:root[data-theme="light"] .pagination-controls button {
+  color: #212529;
+}
+
+/* Dark theme */
+:root[data-theme="dark"] .pagination-controls button {
+  color: #f8f9fa;
+}
+
+/* Override for hover state in both themes */
+.pagination-controls button:hover:not(:disabled) {
+  color: white !important;
+}
+
+/* Also ensure the Monaco editor container has no borders */
+/* .monaco-editor,
+.monaco-editor .overflow-guard,
+.monaco-editor-background {
+  border: none !important;
+  outline: none !important;
+} */
