@@ -2,9 +2,9 @@
 
 // Define the available JSON datasources
 const JSON_SOURCES = {
-  products: '/json/products.json',
-  orders: '/json/orders.json',
-  customers: '/json/customers.json'
+  products: 'json/products.json',  
+  orders: 'json/orders.json',      
+  customers: 'json/customers.json'
 };
 
 // Cache to store loaded JSON data
@@ -17,7 +17,12 @@ const loadJsonData = async (source) => {
   }
   
   try {
-    const response = await fetch(JSON_SOURCES[source]);
+    // Use window.location.pathname to get the base URL
+    const baseUrl = window.location.pathname.includes('sql-query-runner') 
+      ? '/sql-query-runner/' 
+      : '/';
+    
+    const response = await fetch(`${baseUrl}${JSON_SOURCES[source]}`);
     if (!response.ok) {
       throw new Error(`Failed to load data from ${source}`);
     }
